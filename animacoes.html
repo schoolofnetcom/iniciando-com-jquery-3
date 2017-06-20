@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .ul {
+      padding: 0;
+      margin: 0;
+      list-style: none
+    }
+    .li-even {
+      padding: 10px;
+      background: #ccc;
+    }
+    .li-odd {
+      padding: 10px;
+      background: #aaa;
+      color: #fff
+    }
+    .li-hover {
+      background: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+    .li-click {
+      background: #fff;
+      color: #000;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script>
+    let liHover = function () {
+      /*$(this).addClass('li-hover')
+      $(this).toggle('slow');
+      $(this).animate({
+        'padding': '15px'
+      }, 'slow');*/
+      $(this).slideToggle();
+    };
+    let lihoverOut = function () {
+      /*$(this).removeClass('li-hover')
+      $(this).toggle('slow');
+      $(this).animate({
+        'padding': '10px'
+      }, 'slow');*/
+      $(this).slideToggle();
+    };
+    let liClick = function () {
+      alert($(this).text())
+    }
+
+    $('ul').addClass('ul').append('<li>Adicionado dinamicamente</li>');
+
+    $('li').hover(liHover, lihoverOut).click(liClick);
+
+    $('li:even').text('Item impar').addClass('li-even');
+
+    $('li:odd').text('Item par').addClass('li-odd');
+  </script>
+</body>
+</html>
